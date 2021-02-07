@@ -1,0 +1,192 @@
+@import "/src/variables";
+
+.body{
+    
+    .game{
+        text-align: center;
+        background: url("~src/assets/images/bg-pentagon.svg");
+        margin: auto;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        height: 500px;
+        width: 500px;
+
+        .scissors-box{
+            transform: translateY(30px);
+            .btn{
+                margin: auto;
+            }
+        }
+
+        .cyan-paper-box{
+            display: flex;
+            transform: translateY(50px);
+            justify-content: space-between;
+            width: 450px;
+            margin: auto;
+        }
+
+        .lizard-rock-box{
+            display: flex;
+            transform: translateY(110px);
+            justify-content: space-between;
+            width: 300px;
+            margin: auto;
+        }
+
+        .btn-shadow-inside{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 111px;
+            height: 106px;
+            border-radius: 69px;
+            margin: auto;
+            border-top: 5px solid #b9bdd6bf;
+        }
+
+        .btn{
+            background-color: white; 
+            border-radius: 50%;
+            width: 111px; 
+            height: 111px; 
+            position: relative;
+            
+
+            .btn-image{
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                position: absolute;
+                margin: auto;
+            }
+        }
+        .btn:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -16px;
+            border-radius: inherit;
+        }
+        .btn:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -2;
+            margin: -16px;
+            border-radius: inherit;
+            margin-bottom: -22px;
+        }
+        .scissors-gradient:before{
+            background: $scissorsGradient;
+        }
+        .scissors-gradient:after{
+            background: hsl(29deg 72% 44%);
+        }
+        .cyan-gradient:before{
+            background: $cyanGradient;
+        }
+        .cyan-gradient:after{
+            background: hsl(195deg 59% 43%);
+        }
+        .paper-gradient:before{
+            background: $paperGradient;
+        }
+        .paper-gradient:after{
+            background: hsl(229deg 64% 45%);
+        }
+        .lizard-gradient:before{
+            background: $lizardGradient;
+        }
+        .lizard-gradient:after{
+            background: #5e37a9;
+        }
+        .rock-gradient:before{
+            background: $rockGradient;
+        }
+        .rock-gradient:after{
+            background: #a11834;
+        }
+
+        .rules{
+            position: absolute;
+            right: 0;
+            margin-right: 50px;
+            bottom: 0;
+            margin-bottom: 50px;
+
+            button{
+                font-family: "Barlow Semi Condensed";
+                background-color: transparent;
+                outline: none;
+                border: 1px solid white;
+                padding: 10px 30px;
+                border-radius: 10px;
+                color: white;
+                font-size: 17px;
+                letter-spacing: 3px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+
+@media(max-width: 750px){
+    .body{
+        .game{
+            width: 100%;
+            
+            .scissors-box, .cyan-paper-box, .lizard-rock-box{
+                width: 100% !important;
+            }
+
+            .btn:before{
+                margin: -10px;
+            }
+
+            .btn:after{
+                margin: -10px;
+                margin-bottom: -14px;
+            }
+
+            .scissors-box{
+                width: 80%;
+            }
+            .cyan-paper-box{
+                width: 80%;
+            }
+            .lizard-rock-box{
+                width: 80%;
+            }
+            .btn{
+                width: 70px;
+                height: 70px;
+
+                .btn-image{
+                    width: 50%;
+                }
+            }
+            .btn-shadow-inside{
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+    
+}
