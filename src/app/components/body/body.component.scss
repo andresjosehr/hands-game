@@ -1,26 +1,100 @@
 @import "/src/variables";
 
 .body{
-    
-    .game{
-        text-align: center;
+    .game.initial{
         background: url("~src/assets/images/bg-pentagon.svg");
-        margin: auto;
         background-repeat: no-repeat;
         background-position-x: 50%;
         background-position-y: 50%;
         width: 500px;
+    }   
+    .game.combat{
+        width: 100%;
+        .combat-box{
+            width: 500px;
+            display: flex;
+            transform: translateY(200px);
+            justify-content: space-between;
+            margin: auto;
+
+            .result-container{
+                display: grid;
+                height: 130px;
+                .result-text{
+                    font-size: 50px;
+                    font-weight: 900;
+                    color: white;
+                }
+                .play-again-btn{
+                    background: white;
+                    outline: none;
+                    border: none;
+                    border-radius: 10px;
+                    height: 46px;
+                    font-size: 15px;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .btn-container{
+                transform: scale(1.75);
+                margin: initial !important;
+                width: initial !important;
+                padding-left: 16px !important;
+
+                .picked-text{
+                    transform: translate(0px, -50px);
+                    display: block;
+                    font-size: 12px;
+                    color: white;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+    .game{
+        text-align: center;
+        margin: auto;
+
+        .btn-container-spock, .btn-container-lizard{
+            margin-right: auto;
+            padding-left: 16px;
+            width: 128px;
+        }
+        .btn-container-paper, .btn-container-rock{
+            margin-left: auto;
+            padding-left: 16px;
+            width: 128px;
+        }
+        .btn-container-scissors{
+            margin: auto;    
+            width: 144px;
+        }
+
+        .btn-container{
+            height: 133px;
+            padding-top: 16px;
+            transform: translateY(0px);
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .btn-container:hover{
+            transform: translateY(-5px);
+            transition: all .2s;
+        }
 
         .scissors-box{
-            transform: translateY(-50px);
+            transform: translateY(-10px);
+
             .btn{
                 margin: auto;
             }
         }
 
-        .cyan-paper-box{
+        .spock-paper-box{
             display: flex;
-            transform: translateY(-50px);
+            transform: translateY(-30px);
             justify-content: space-between;
             width: 450px;
             margin: auto;
@@ -30,7 +104,7 @@
             display: flex;
             transform: translateY(20px);
             justify-content: space-between;
-            width: 300px;
+            width: 350px;
             margin: auto;
         }
 
@@ -95,10 +169,10 @@
         .scissors-gradient:after{
             background: hsl(29deg 72% 44%);
         }
-        .cyan-gradient:before{
-            background: $cyanGradient;
+        .spock-gradient:before{
+            background: $spockGradient;
         }
-        .cyan-gradient:after{
+        .spock-gradient:after{
             background: hsl(195deg 59% 43%);
         }
         .paper-gradient:before{
@@ -120,50 +194,86 @@
             background: #a11834;
         }
 
-        .rules{
-            position: absolute;
-            right: 0;
-            margin-right: 50px;
-            bottom: 0;
-            margin-bottom: 50px;
+    }
+    .rules{
+        position: absolute;
+        right: 0;
+        margin-right: 50px;
+        bottom: 0;
+        margin-bottom: 20px;
 
-            button{
-                font-family: "Barlow Semi Condensed";
-                background-color: transparent;
-                outline: none;
-                border: 1px solid white;
-                padding: 10px 30px;
-                border-radius: 10px;
-                color: white;
-                font-size: 17px;
-                letter-spacing: 3px;
-                text-align: center;
-                cursor: pointer;
-            }
+        button{
+            cursor: pointer;
+            font-family: "Barlow Semi Condensed";
+            background-color: transparent;
+            outline: none;
+            border: 1px solid white;
+            padding: 10px 30px;
+            border-radius: 10px;
+            color: white;
+            font-size: 17px;
+            letter-spacing: 3px;
+            text-align: center;
         }
-
     }
 }
 
 
-@media(max-width: 750px){
+@media(max-width: 1000px){
     .body{
+        .game.initial{
+            width: 100%;
+            background-size: 200px !important;
+        }
+        
+        .game.combat{
+            .combat-box{
+                transform: translateY(80px);
+                .result-container{
+                    width: 200px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 150px;
+                }
+                .btn-container{
+                    transform: scale(1.25);
+                }
+                .btn-container:nth-of-type(1){
+                    padding-left: 0px !important;
+                    padding-right: 16px !important;
+                }
+            }
+        }
         .game{
             width: 100%;
             background-size: 200px;
+
+            .btn-container{
+                height: 84px;
+                padding-top: 10px;
+            }
+
+            .btn-container-spock, .btn-container-lizard{
+                width: 81px;
+            }
+            .btn-container-paper, .btn-container-rock{
+                width: 81px;
+            }
             
             .scissors-box{
                 width: 100% !important;
-                transform: translateY(-25px) !important;
-            
+                transform: translateY(-5px) !important;            
             }
-            .cyan-paper-box{
-                width: 284px !important;
-                transform: translateY(-23px) !important;
+            .spock-paper-box{
+                width: 296px !important;
+                transform: translateY(-15px) !important;            
             }
             .lizard-rock-box{
-                width: 200px !important;
-                transform: translateY(20px) !important;
+                width: 225px !important;
+                transform: translateY(5px) !important;
             }
 
             .btn:before{
@@ -178,7 +288,7 @@
             .scissors-box{
                 width: 80%;
             }
-            .cyan-paper-box{
+            .spock-paper-box{
                 width: 80%;
             }
             .lizard-rock-box{
@@ -197,12 +307,13 @@
                 height: 70px;
             }
 
-            .rules{
-                right: 0;
-                left: 0;
-                margin-left: 0;
-                margin-right: 0;
-            }
+        }
+        .rules{
+            right: 0;
+            left: 0;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: center;
         }
     }
     

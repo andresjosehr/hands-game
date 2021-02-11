@@ -3,5 +3,8 @@
 body{
     margin: 0;
     font-family: "Barlow Semi Condensed";
-    background: $radialGradient;
+    background: $radialGradient no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }

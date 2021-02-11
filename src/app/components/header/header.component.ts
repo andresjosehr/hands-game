@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() gameScore: number = 0
+  ngOnChanges(model: any) {
+    console.log(model);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
